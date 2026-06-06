@@ -280,21 +280,28 @@ Thư mục `session-02/`, `session-03/`... đã được tạo sẵn — không 
 
 Làm lại **Bước 4 → Bước 7** mỗi buổi:
 
-```bash
-# Bước 4.1: Sync fork trên GitHub (vào github.com, click "Sync fork" → "Update branch")
+**Bước 4.1 — Sync fork từ repo của giáo viên (trên GitHub web)**
 
-# Bước 4.2: Tạo branch buổi mới
+1. Vào fork của bạn trên GitHub
+2. Nhấn nút **Sync fork** → chọn **Update branch**
+
+**Bước 4.2 → Bước 7 — Tạo branch, làm bài, commit và push:**
+
+```bash
+# Cập nhật code cục bộ
 git checkout master
 git pull
+
+# Tạo branch buổi mới
 git checkout -b embedded-linux/K26.1/nguyen-van-a/session-02
 
 # Kiểm tra đang đúng branch chưa
 git branch    # phải thấy * embedded-linux/K26.1/nguyen-van-a/session-02
 
-# Bước 5: Vào đúng thư mục session, kiểm tra pwd trước khi làm bài
+# Vào đúng thư mục session
 cd embedded-linux/K26.1/nguyen-van-a/session-02
 pwd           # phải kết thúc bằng /session-02
 mkdir -p Exercise_1 Exercise_2 Exercise_3
 
-# Bước 6 & 7: Commit, push, mở PR như bình thường
+# Làm bài, commit, push, mở PR như bình thường
 ```
