@@ -21,8 +21,6 @@ jobs:
       # Checkout the public devlinux repo
       - name: Checkout devlinux repo
         uses: actions/checkout@v4
-        with:
-          path: devlinux
 
       # Setup SSH to clone private reviewer repo
       - name: Setup SSH Deploy Key
@@ -54,14 +52,12 @@ jobs:
       # Configure git
       - name: Configure git
         run: |
-          cd devlinux
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       # Commit and push reports
       - name: Commit and push reports
         run: |
-          cd devlinux
           if git add "**/homework_report.csv" && ! git diff --cached --quiet; then
             git commit -m "📊 Update attendance report - $(date +'%Y-%m-%d')"
             git push origin master
