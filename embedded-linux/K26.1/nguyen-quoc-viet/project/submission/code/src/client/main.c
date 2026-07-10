@@ -194,6 +194,9 @@ void chat_loop(int sock, const char *username)
 
 			recv_buf[recv_len] = '\0';
 
+			if (strlen(send_buf) > 0)
+				printf("\n");
+
 			char *pos = recv_buf;
 			char *newline;
 			while ((newline = strchr(pos, '\n')) != NULL) {
@@ -201,6 +204,9 @@ void chat_loop(int sock, const char *username)
 				display_message(pos);
 				pos = newline + 1;
 			}
+
+			printf("> %s", send_buf);
+			fflush(stdout);
 		}
 
 		if (FD_ISSET(STDIN_FILENO, &readfds)) {
