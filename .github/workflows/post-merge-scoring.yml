@@ -2,7 +2,7 @@ name: Post-Merge Scoring
 
 on:
   pull_request:
-    branches: [master]
+    branches: [master, feature/projects]
     types: [closed]
 
 jobs:
@@ -76,6 +76,6 @@ This file is auto-generated post-merge and contains:
 - Timestamp when locked
 
 SCORE.json is immutable (locked) after merge."
-            git push origin master
+            git push origin ${{ github.base_ref }}
             echo "✅ SCORE.json committed and pushed"
           fi
